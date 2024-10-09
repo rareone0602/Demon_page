@@ -1,6 +1,5 @@
----
 
-**Title:** Demons in Diffusion: Aligning Image Generation with User Preferences
+# **Title:** Demons in Diffusion: Aligning Image Generation with User Preferences
 
 ---
 
@@ -147,35 +146,3 @@
 **Narration:**
 
 "Thank you for watching. Together, let's make AI work better—for you."
-
----
-
-### **Additional Notes for Manim Implementation:**
-
-- **Visual Metaphors:** Utilize metaphors like sculpting, guiding particles, or navigating paths to represent abstract concepts.
-
-- **Step-by-Step Equations:** When introducing equations, build them gradually. Highlight each term as you explain its role in the process.
-
-- **Engaging Animations:** Use Manim's capabilities to create smooth and captivating animations that illustrate complex ideas simply.
-
-- **Interactive Elements:** Incorporate moments where the viewer feels part of the process, such as posing rhetorical questions or briefly pausing for thought.
-
-- **Consistent Visual Style:** Maintain a cohesive aesthetic throughout the video to enhance professionalism and viewer engagement.
-
----
-
-### **Addressing the Identified Weaknesses:**
-
-- **Reducing Jargon:** The script avoids heavy technical language, using analogies and simplified explanations to make complex concepts accessible.
-
-- **Logical Flow:** The content is reorganized to build logically from the problem to the solution, preventing confusion and maintaining engagement.
-
-- **Maintaining Engagement:** By weaving a narrative and introducing a friendly 'Demon' character, the script keeps viewers interested throughout.
-
-- **Clarity in Explanation:** Technical insights are broken down into intuitive explanations, supported by visual animations to reinforce understanding.
-
----
-
-By structuring your video in this way, you emulate the engaging and educational style of 3Blue1Brown. The script balances storytelling with technical depth, ensuring that viewers not only understand your method but are also excited about its potential.
-
-If you need assistance with specific Manim animations or further refinement of the script, feel free to ask!
