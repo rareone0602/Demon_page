@@ -1,0 +1,21 @@
+```
+To address these limitations, we propose \emph{Demon}, a novel stochastic optimization approach for preference optimization of diffusion models at inference time.
+Demon is a metaphor from Maxwell's Demon, an imaginary manipulator of natural thermodynamic processes.
+The core ideas are: 
+(1) Quality of noises that seed different possible backward steps in a discretized reverse-time Stochastic Differential Equation (SDE) can be evaluated given a reward source; 
+(2) Such evaluation enables us to synthesize ``optimal'' noises that theoretically and empirically improve the final reward of the generated image through stochastic optimization.
+Specifically, we leverage Probability Flow Ordinary Differential Equation (PF-ODE)~\citep{scoresde} or Consistency Model (CM)~\citep{consistency, lcm} to help us efficiently evaluate the possible backward steps, seeded with different Gaussian noises.
+```
+
+* Opening Hook
+text2image are common tools for generating images from text. They, however, often require a lot of manual tweaking to get the desired result.
+Have you ever wished that text2image could instantly understand and adapt to your unique visual preferences?
+You may have the experience of using text2image tools while, ususally, there are images that are close to perfect, but there are always some that are not quite right. 
+
+
+* Present the Challenge
+The prior work usually involves training a proxy indicating human preferences to improve the quality of the generated images. 
+This approach, however, is not only time-consuming for trainging but also possesses a severe hacking, which reaches a high score in the proxy but is not visually appealing.
+We propose a new approach that can directly optimize the generated images to match the user's preferences.
+
+* Introduce Your Method
