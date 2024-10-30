@@ -26,8 +26,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
     <title>Training-free Diffusion Model Alignment</title>
-    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-    
+    <link rel="icon" type="image/x-icon" href="static/images/smile.png">
+    <!-- Credit: https://www.flaticon.com/free-icon/smile_13535737?term=demon&page=1&position=24&origin=search&related_id=13535737 -->
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
     
@@ -60,12 +61,12 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://www.citi.sinica.edu.tw" target="_blank">Po-Hung Yeh</a>,
+                <a href="https://scholar.google.com/citations?user=rDzzITAAAAAJ&hl" target="_blank">Po-Hung Yeh</a>,
               </span>
               <span class="author-block">
-                <a href="https://kuanghuei.github.io/" target="_blank">Kuang-Huei Lee</a>,</span>
+                <a href="https://scholar.google.com/citations?user=rE7-N30AAAAJ" target="_blank">Kuang-Huei Lee</a>,</span>
               <span class="author-block">
-                <a href="https://scholar.google.com.au/citations?user=3x9KITUAAAAJ&hl=en" target="_blank">Jun-Cheng Chen</a>
+                <a href="https://scholar.google.com/citations?user=3x9KITUAAAAJ&hl" target="_blank">Jun-Cheng Chen</a>
               </span>
               </div>
 
@@ -97,17 +98,15 @@
                   <span>Supplementary</span>
                 </a>
               </span> -->
-
-              <!-- Github link
               <span class="link-block">
-                <a href="https://github.com/YOUR-REPO-HERE" target="_blank"
+                <a href="https://github.com/rareone0602/Demon_page" target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
-                <span>Code</span>
+                <span>Code [Coming Soon]</span>
               </a>
-            </span> -->
+            </span>
 
             <!-- ArXiv abstract Link -->
             <span class="link-block">
@@ -129,15 +128,19 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
+      <!-- Replace video with a static image as previously discussed -->
+      <img src="static/images/UIcat.jpg" alt="Banner Image" style="width: 100%; height: auto;">
       <h2 class="subtitle has-text-centered">
-        Our approach, dubbed "Demon," is a stochastic optimization method to guide the denoising process at inference time, improving preference alignment without backpropagation.
+        Our application (Left) for manual interaction with our algorithm, "Demon," a stochastic optimization method that guides the denoising process at inference time.
       </h2>
+      <p class="subtitle has-text-centered">
+        The author selects images based on their preferences—non-preferred images are kept unselected—to align with a reference image (Right). Improved performance is observed by measuring the cosine similarity of DINOv2 features between the initial state 0.622 (Mid Top) and the final state 0.708 (Mid Bottom).
+      </p>  
     </div>
   </div>
 </section>
+
+
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
@@ -157,7 +160,7 @@
 </section>
 <!-- End paper abstract -->
 
-<!-- Image carousel -->
+<!-- Image carousel
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
@@ -182,7 +185,7 @@
     </div>
   </div>
 </section>
-<!-- End image carousel -->
+ -->
 
 <!-- Youtube video 
 <section class="hero is-small is-light">
@@ -201,10 +204,10 @@
 </section>
 -->
 
-<section class="hero is-small is-light">
-  <div class="container">
-    <div class="hero-body">
-      <h2 class="title">Preprint</h2>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">  
+      <h2 class="title">Method Overview</h2>
       <video poster="" id="tree" autoplay controls muted loop height="100%">
         <source src="static/videos/DemonVideo.mp4" type="video/mp4">
       </video>
@@ -216,17 +219,32 @@
             While the video demonstrates using a first-order solver for simplicity, the paper employs a second-order solver to enhance optimization efficiency.
           </li>
           <li id="footnote2">
-            The paper projects the weighted noise onto a sphere of radius \( \sqrt{N} \) instead of dividing by \( \sqrt{K} \), while retaining the same concept to generate Gaussian-like noise.
+            Unlike the demo, the paper projects the weighted noise onto a sphere of radius \( \sqrt{N} \) instead of dividing by \( \sqrt{K} \), while retaining the same concept to generate Gaussian-like noise.
           </li>
         </ol>
       </div>
     </div>
-    <div class="hero-body">
+  </div>
+</section>
+
+<!---
+<section class="hero is-light"></section>
+  <div class="hero-body">
+    <div class="container">  
+      <h2 class="title">Reward Estimate Proximity</h2>
+      <img src="static/images/lemma1.png" alt="Banner Image" style="width: 100%; height: auto;">
+    </div>
+  </div>
+</section>
+-->
+<section class="hero is-small is-light"></section>  
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Preprint</h2>
       <iframe src="static/pdfs/2410.05760v1.pdf" width="100%" height="550"></iframe>
     </div>
   </div>
 </section>
-
 <!-- End paper poster -->
 
 <!-- BibTex citation -->
@@ -255,7 +273,8 @@
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            Commons Attribution-ShareAlike 4.0 International License</a>. Favicon credit: <a href="https://www.flaticon.com/free-icon/smile_13535737?term=demon&page=1&position=24&origin=search&related_id=13535737" target="_blank">André Luiz Gollo</a>.
+            The method overview video is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">Creative Commons Zero (CC0)</a> (<a href="https://github.com/rareone0602/Demon_page" target="_blank">Video Source Code</a>). You are free to distribute, modify, and use this video without attribution.
           </p>
 
         </div>

@@ -134,11 +134,21 @@ body {
 }
 
 
+/* Custom CSS for the new paragraph */
+
 
 .footnotes {
   font-size: 0.9em;
   color: #555;
 }
+
 .footnotes ol {
   padding-left: 20px;
+}
+
+.hero.teaser .subtitle + p.subtitle {
+  margin-top: 1rem; 
+  font-size: 1.1em; 
+  line-height: 1.6;
+  color: #333;
 }
