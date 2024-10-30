@@ -226,16 +226,13 @@ class DemonVideo(Scene):
         self.play(FadeIn(title))
         self.play(Write(VGroup(*[self.final_equation[i] for i in range(len(self.final_equation)) if i != 3])))
         self.wait(1)
-        self.play(FadeOut(title))
+        self.play(FadeOut(title), FadeOut(self.final_equation))
     
     def demonstration_end(self):
-
-        self.play(FadeOut(self.final_equation))
-
+        
         self.illustration_eq = MathTex(
             r"\mathbf{x}_t", r"\xrightarrow{\mathbf{z}_t}",
             r"\mathbf{x}_{t - \Delta_1}", r"\xrightarrow{\mathbf{z}_{t - \Delta_1}}",
-            r"\mathbf{x}_{t - \Delta_2}", r"\xrightarrow{\mathbf{z}_{t - \Delta_2}}",
             r"\cdots",
             r"\mathbf{x}_{t - \Delta_T}", r"\xrightarrow{\mathbf{z}_{t - \Delta_T}}",
             r"\mathbf{x}_0 = "
@@ -244,8 +241,7 @@ class DemonVideo(Scene):
         title = Tex("Sampling Demon").next_to(self.illustration_eq, UP)
         self.illustration_eq[1].set_color(PURPLE)
         self.illustration_eq[3].set_color(PURPLE)
-        self.illustration_eq[5].set_color(PURPLE)
-        self.illustration_eq[8].set_color(PURPLE)
+        self.illustration_eq[6].set_color(PURPLE)
         # Group eq and assets/demon.jpg
         self.illustration = Group(self.illustration_eq, ImageMobject("assets/demon.jpg").scale(0.2)).arrange(RIGHT, buff=0.5)
         
@@ -253,4 +249,8 @@ class DemonVideo(Scene):
         self.play(Write(self.illustration_eq[:-1]))
         self.wait(.5)
         self.play(FadeIn(self.illustration_eq[-1]), FadeIn(self.illustration[-1]))
-        self.wait(2)
+        self.wait(5)
+
+# manim -pql video.py DemonVideo
+# Output gif:
+# manim -pql video.py DemonVideo -s

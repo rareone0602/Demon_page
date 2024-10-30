@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Meta tags for SEO and social media sharing -->
+    <meta name="description" content="Training-free diffusion model alignment with sampling demons. This paper proposes a novel stochastic optimization approach, Demon, to guide the denoising process in diffusion models for improved preference alignment without involving backpropagation."/>
+    
+    <!-- Open Graph meta tags for social media -->
+    <meta property="og:title" content="Training-free Diffusion Model Alignment with Sampling Demons"/>
+    <meta property="og:description" content="This preprint discusses a novel method to align diffusion models with user preferences using stochastic optimization. Our approach can integrate non-differentiable reward sources like VLM APIs and human judgements."/>
+    <meta property="og:url" content="https://arxiv.org/abs/2410.05760"/>
+    <!-- Banner image for social media (update the path to your actual image) -->
+    <meta property="og:image" content="static/images/UIcat.jpg" />
+    <meta property="og:image:width" content="1999"/>
+    <meta property="og:image:height" content="1001"/>
+  
+    <!-- Twitter-specific meta tags -->
+    <meta name="twitter:title" content="Training-free Diffusion Model Alignment with Sampling Demons">
+    <meta name="twitter:description" content="Our approach improves preference alignment in diffusion models without backpropagation or retraining. The method can use non-differentiable rewards such as Visual-Language Models and human feedback.">
+    <meta name="twitter:image" content="static/images/UIcat.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+  
+    <!-- Keywords for indexing -->
+    <meta name="keywords" content="diffusion models, stochastic optimization, sampling demons, preference alignment, non-differentiable rewards, arXiv, human judgements">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Training-free Diffusion Model Alignment</title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+  
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Training-free Diffusion Model Alignment with Sampling Demons</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://www.citi.sinica.edu.tw" target="_blank">Po-Hung Yeh</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://kuanghuei.github.io/" target="_blank">Kuang-Huei Lee</a>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com.au/citations?user=3x9KITUAAAAJ&hl=en" target="_blank">Jun-Cheng Chen</a>
+              </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Academia Sinica, Google DeepMind</span>
+                <!---<span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>--->
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- Arxiv PDF link -->
+                  <span class="link-block">
+                    <a href="https://arxiv.org/pdf/2410.05760" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <!-- Supplementary PDF link 
+                <span class="link-block">
+                  <a href="static/pdfs/2410.05760v1.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supplementary</span>
+                </a>
+              </span> -->
+
+              <!-- Github link
+              <span class="link-block">
+                <a href="https://github.com/YOUR-REPO-HERE" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span> -->
+
+            <!-- ArXiv abstract Link -->
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2410.05760" target="_blank"
+              class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="ai ai-arxiv"></i>
+              </span>
+              <span>arXiv</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our approach, dubbed "Demon," is a stochastic optimization method to guide the denoising process at inference time, improving preference alignment without backpropagation.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Aligning diffusion models with user preferences has been a key challenge. Existing methods for aligning diffusion models either require retraining or are limited to differentiable reward functions. To address these limitations, we propose a stochastic optimization approach, dubbed Demon, to guide the denoising process at inference time without backpropagation through reward functions or model retraining. Our approach works by controlling noise distribution in denoising steps to concentrate density on regions corresponding to high rewards through stochastic optimization. We provide comprehensive theoretical and empirical evidence to support and validate our approach, including experiments that use non-differentiable sources of rewards such as Visual-Language Model (VLM) APIs and human judgements. To the best of our knowledge, the proposed approach is the first inference-time, backpropagation-free preference alignment method for diffusion models. Our method can be easily integrated with existing diffusion models without further training. Our experiments show that the proposed approach significantly improves the average aesthetics scores for text-to-image generation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <img src="static/images/carousel1.jpg" alt="Visualization of the stochastic denoising process"/>
+          <h2 class="subtitle has-text-centered">Demon stochastic denoising optimization</h2>
+        </div>
+        <div class="item">
+          <img src="static/images/carousel2.jpg" alt="Experiment 1 result"/>
+          <h2 class="subtitle has-text-centered">Results from Experiment 1</h2>
+        </div>
+        <div class="item">
+          <img src="static/images/carousel3.jpg" alt="Experiment 2 result"/>
+          <h2 class="subtitle has-text-centered">Results from Experiment 2</h2>
+        </div>
+        <div class="item">
+          <img src="static/images/carousel4.jpg" alt="High-resolution image generation"/>
+          <h2 class="subtitle has-text-centered">High-resolution text-to-image generation</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
+
+<!-- Youtube video 
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<section class="hero is-small is-light">
+  <div class="container">
+    <div class="hero-body">
+      <h2 class="title">Preprint</h2>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/DemonVideo.mp4" type="video/mp4">
+      </video>
+      <!-- Footnotes section -->
+      <div class="footnotes">
+        <hr>
+        <ol>
+          <li id="footnote1">
+            While the video demonstrates using a first-order solver for simplicity, the paper employs a second-order solver to enhance optimization efficiency.
+          </li>
+          <li id="footnote2">
+            The paper projects the weighted noise onto a sphere of radius \( \sqrt{N} \) instead of dividing by \( \sqrt{K} \), while retaining the same concept to generate Gaussian-like noise.
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="hero-body">
+      <iframe src="static/pdfs/2410.05760v1.pdf" width="100%" height="550"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- End paper poster -->
+
+<!-- BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{yeh2024trainingfreediffusionmodelalignment,
+      title={Training-free Diffusion Model Alignment with Sampling Demons}, 
+      author={Po-Hung Yeh and Kuang-Huei Lee and Jun-Cheng Chen},
+      year={2024},
+      eprint={2410.05760},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2410.05760}, 
+}</code></pre>
+  </div>
+</section>
+<!-- End BibTex citation -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
