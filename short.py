@@ -101,3 +101,4 @@ class ShortVideo(Scene):
         final_image_with_label.next_to(title, DOWN, buff=0.5, aligned_edge=RIGHT)
         self.play(FadeIn(final_image_with_label), FadeOut(previous_images), run_time=0.5)
         self.wait(2.5)  # Wait at the end of the video
+# manim -qh short.py ShortVideo
