@@ -129,13 +129,16 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <!-- Replace video with a static image as previously discussed -->
-      <img src="static/images/UIcat.jpg" alt="Banner Image" style="width: 100%; height: auto;">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/ShortVideo.mp4" type="video/mp4">
+      </video>
+      <!--<img src="static/images/UIcat.jpg" alt="Banner Image" style="width: 100%; height: auto;"> -->
       <h2 class="subtitle has-text-centered">
-        Our application (Left) for manual interaction with our algorithm, "Demon," a stochastic optimization method that guides the denoising process at inference time.
+        Our application (right) allows manual interaction with our algorithm, "Demon," a stochastic optimization method that guides the denoising process during inference.
       </h2>
       <p class="subtitle has-text-centered">
-        The author selects images based on their preferences—non-preferred images are kept unselected—to align with a reference image (Right). Improved performance is observed by measuring the cosine similarity of DINOv2 features between the initial state 0.622 (Mid Top) and the final state 0.708 (Mid Bottom).
-      </p>  
+        The author selects images marked by a red border based on their preferences—non-preferred images remain unselected—to align with a reference image (top left). Improved performance is observed by measuring the cosine similarity of DINOv2 features between the baseline PF-ODE 0.5414 (bottom left) and the final state 0.8549 (right).
+      </p>      
     </div>
   </div>
 </section>
@@ -274,7 +277,7 @@
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>. Favicon credit: <a href="https://www.flaticon.com/free-icon/smile_13535737?term=demon&page=1&position=24&origin=search&related_id=13535737" target="_blank">André Luiz Gollo</a>.
-            The method overview video is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">Creative Commons Zero (CC0)</a> (<a href="https://github.com/rareone0602/Demon_page" target="_blank">Video Source Code</a>). You are free to distribute, modify, and use this video without attribution.
+            The teaser and method overview video is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">Creative Commons Zero (CC0)</a> (<a href="https://github.com/rareone0602/Demon_page" target="_blank">Video Source Code</a>). You are free to distribute, modify, and use this video without attribution.
           </p>
 
         </div>

@@ -1,6 +1,7 @@
 import os
 from PIL import Image
 import torch
+import json
 from transformers import AutoImageProcessor, AutoModel
 
 # Load the pre-trained processor and model
@@ -39,9 +40,24 @@ sims = torch.nn.functional.cosine_similarity(ref_emb, special_embs, dim=1)
 print(f"Original: {sims[0].item():.4f}, Final: {sims[1].item():.4f}")
 
 # Process images in batches and compute similarities
+data = []
 batch_size = 16
 for i in range(0, len(imgs), batch_size):
     batch_imgs = [Image.open(os.path.join(img_dir, img)) for img in imgs[i:i + batch_size]]
     batch_embs = get_dinov2_embeddings(batch_imgs)
     sims = torch.nn.functional.cosine_similarity(ref_emb, batch_embs, dim=1)
     print(f"{sims.mean().item():.4f} ± {sims.std().item():.4f}")
+    round_data = {
+        "mean": sims.mean().item(),
+        "std": sims.std().item(),
+        'images': [os.path.join(img_dir, img) for img in imgs[i:i + batch_size]],
+        'choices': [int(not img.endswith('_not_selected.png')) for img in imgs[i:i + batch_size]]
+    }
+    data.append(round_data)
+data = {
+    'data': data,
+    'original': sims[0].item(),
+    'final': sims[1].item()
+}
+with open('data.json', 'w') as f:
+    json.dump(data, f, indent=2)

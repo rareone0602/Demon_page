@@ -1,5 +1,12 @@
 from manim import *
 import os
+import json
+
+# Load data from 'data.json'
+with open('data.json', 'r') as f:
+    data = json.load(f)
+
+# data['data'] = data['data'][:4]
 
 class ShortVideo(Scene):
     def construct(self):
@@ -7,85 +14,90 @@ class ShortVideo(Scene):
         title = Text("Aligning Diffusion Model by Manual Selection", font_size=36)
         title.to_edge(UP)
 
-        # === Vertical Image ===
+        # === Reference Image (Left Top) ===
         vertical_image_path = os.path.join('selected_images', 'ref.jpg')
-        vertical_image = ImageMobject(vertical_image_path).scale(0.5)
-        placeholder_text = Text("Reference", font_size=24).next_to(vertical_image, DOWN)
-        vertical_image.add(placeholder_text)
- 
-        # === Double Directional Arrow with Label ===
-        arrow_length = 2
-        arrow = DoubleArrow(start=LEFT * arrow_length / 2, end=RIGHT * arrow_length / 2, buff=0)
-        arrow.set_color(YELLOW)
+        vertical_image = ImageMobject(vertical_image_path).scale(0.25)
+        placeholder_text = Text("Reference", font_size=18).next_to(vertical_image, UP)
+        vertical_image_with_label = Group(vertical_image, placeholder_text)
+        vertical_image_with_label.to_corner(UL)
 
-        # Label above the arrow
-        arrow_label = Text("DINOv2 similarity", font_size=18)
-        arrow_label.next_to(arrow, UP)
+        # === Initial Image (Left Bottom) ===
+        initial_image_path = os.path.join('selected_images', 'pfode.png')  # Replace with your initial image path
+        initial_image = ImageMobject(initial_image_path).scale(0.25)
+        initial_image_label = Paragraph(
+            "PF-ODE",
+            "(0.5414 DINOv2 similarity)", 
+            font_size=18,
+            alignment='center').next_to(initial_image, UP)
+        initial_image_with_label = Group(initial_image, initial_image_label)
+        initial_image_with_label.next_to(vertical_image_with_label, DOWN, buff=0.1, aligned_edge=ORIGIN)
 
-        # Group arrow and label using Group for better performance
-        arrow_group = VGroup(arrow, arrow_label)
+        # === Group Left Images ===
+        left_images = Group(vertical_image_with_label, initial_image_with_label)
 
         # === Image Grid Parameters ===
-        images_dir = "./selected_images"  # Ensure this directory exists and contains images
-        grid_rows = 4  # Reduced from 16 for better performance
-        grid_cols = 4  # Reduced from 16 for better performance
-        image_size = 0.2  # Adjusted for smaller grid
-        spacing = 0.05
+        grid_rows = 4
+        grid_cols = 4
+        image_size = 8
+        spacing = 0.1
+        # === Position Content Below Title ===
+        left_images.next_to(title, DOWN, buff=0.5, aligned_edge=LEFT)
 
-        # Load images
-        image_files = []
-        if os.path.exists(images_dir):
-            # Sorted for consistent ordering
-            for file in sorted(os.listdir(images_dir)):
-                if file.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')):
-                    image_files.append(os.path.join(images_dir, file))
-        else:
-            image_files = []
+        # === Loop Through Rounds (Optional) ===
+        for idx, round_data in enumerate(data['data']):
+            # Create a grid of images for this round
+            images = Group()
+            for img_path, choice in zip(round_data['images'], round_data['choices']):
+                # Create the image
+                img = ImageMobject(img_path)
+                img.height = image_size / 5
+                # Create a surrounding rectangle if the image is selected
+                if choice == 1:
+                    highlight_rect = Rectangle(
+                        width=img.width + 0.05,
+                        height=img.height + 0.05,
+                        stroke_color=RED,
+                        stroke_width=3
+                    ).move_to(img)
+                    # Group the image and the rectangle
+                    img_group = Group(img, highlight_rect)
+                else:
+                    img_group = img
+                images.add(img_group)
+            # Arrange images in a grid
+            images.arrange_in_grid(rows=grid_rows, cols=grid_cols, buff=spacing)
+            images.scale(0.8)
+            images.next_to(title, DOWN, buff=0.5, aligned_edge=RIGHT)
 
-        # Limit to grid size
-        max_images = grid_rows * grid_cols
-        image_files = image_files[:max_images]
-
-        # Create grid of images
-        images = Group()
-        for idx, img_path in enumerate(image_files):
-            try:
-                img = ImageMobject(img_path).scale(image_size)
-            except Exception:
-                # Handle corrupted images or unsupported formats
-                img = Square(side_length=image_size).set_color(GREY)
-                error_text = Text("Err", font_size=6)
-                img.add(error_text)
-            
-            # Highlight selected images (e.g., every 10th)
-            if idx % 2 == 0:
-                img.set_stroke(RED)
-            
-            images.add(img)
-
-        # Fill remaining grid with placeholders if necessary
-        total_images = grid_rows * grid_cols
-        for _ in range(len(images), total_images):
-            placeholder = Square(side_length=image_size).set_color(GREY)
-            empty_text = Text("Empty", font_size=6)
-            placeholder.add(empty_text)
-            images.add(placeholder)
-
-        # Arrange images in grid
-        images.arrange_in_grid(rows=grid_rows, cols=grid_cols, buff=spacing)
-
-        # === Arrange Horizontal Layout ===
-        horizontal_group = Group(
-            vertical_image,
-            arrow_group,
-            images
-        ).arrange(RIGHT, buff=0.5)
-
-        # Position below the title
-        horizontal_group.next_to(title, DOWN, buff=1)
-
-        # === Add Elements to Scene with Animations ===
-        self.play(FadeIn(title), FadeIn(vertical_image), FadeIn(arrow_group), FadeIn(images))
-        self.wait(2)
-
-# manim -pql short.py ShortVideo
+            # Animate image grid changes
+            if idx == 0:
+                self.play(
+                    FadeIn(title),
+                    FadeIn(left_images),
+                    FadeIn(images),
+                    run_time=0.5
+                )
+            elif idx < 5:
+                self.play(
+                    FadeOut(previous_images), FadeIn(images),
+                    run_time=0.5
+                )
+            else:
+                self.play(
+                    FadeOut(previous_images), FadeIn(images),
+                    run_time=0.25
+                )
+            previous_images = images
+            self.wait(1 if idx == 0 else 0.5 if idx < 5 else 0.25)
+    
+        final_image_path = os.path.join('selected_images', 'demon.png')  # Replace with your initial image path
+        final_image = ImageMobject(final_image_path).scale(0.7)
+        final_image_label = Paragraph(
+            "Demon",
+            "(0.8549 DINOv2 similarity)", 
+            font_size=18, 
+            alignment='center').next_to(final_image, UP)
+        final_image_with_label = Group(final_image, final_image_label)
+        final_image_with_label.next_to(title, DOWN, buff=0.5, aligned_edge=RIGHT)
+        self.play(FadeIn(final_image_with_label), FadeOut(previous_images), run_time=0.5)
+        self.wait(2.5)  # Wait at the end of the video
