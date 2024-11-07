@@ -11,7 +11,7 @@ with open('data.json', 'r') as f:
 class ShortVideo(Scene):
     def construct(self):
         # === Title ===
-        title = Text("Aligning Diffusion Model by Manual Selection", font_size=36)
+        title = Text("Aligning Diffusion Model by Your Hand", font_size=36)
         title.to_edge(UP)
 
         # === Reference Image (Left Top) ===
