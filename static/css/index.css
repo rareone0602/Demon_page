@@ -1,41 +1,69 @@
+/* Global Styles */
 body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-
+/* Footer */
 .footer .icon-link {
-    font-size: 25px;
-    color: #000;
+  font-size: 25px;
+  color: #000;
 }
 
+/* Link Blocks */
 .link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
+/* Special Text Styles */
 .dnerf {
   font-variant: small-caps;
 }
 
+/* Teaser Section */
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
 
 .teaser .hero-body {
   padding-top: 0;
   padding-bottom: 3rem;
 }
 
-.teaser {
+/* Publication Titles and Authors */
+.publication-title,
+.publication-authors {
   font-family: 'Google Sans', sans-serif;
 }
 
-
-.publication-title {
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
 }
 
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+
+/* Publication Venue and Awards */
+.publication-venue {
+  color: #555;
+  width: fit-content;
+  font-weight: bold;
+}
+
+.publication-awards {
+  color: #ff3860;
+  width: fit-content;
+  font-weight: bolder;
+}
+
+/* Publication Banner */
 .publication-banner {
   max-height: parent;
-
 }
 
+.publication-banner img,
 .publication-banner video {
   position: relative;
   left: auto;
@@ -44,72 +72,25 @@ body {
   object-fit: fit;
 }
 
-.publication-header .hero-body {
-}
-
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
-}
-
-.publication-authors {
-}
-
-.publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
-}
-
-.publication-authors a:hover {
-    text-decoration: underline;
-}
-
-.author-block {
-  display: inline-block;
-}
-
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
-}
-
+/* Publication Video */
 .publication-video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-
-    overflow: hidden;
-    border-radius: 10px !important;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 10px !important;
 }
 
 .publication-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.publication-body img {
-}
-
+/* Results Carousel */
 .results-carousel {
   overflow: hidden;
 }
@@ -129,14 +110,12 @@ body {
   background: #000000;
 }
 
-.eql-cntrb { 
+/* Equal Contribution Note */
+.eql-cntrb {
   font-size: smaller;
 }
 
-
-/* Custom CSS for the new paragraph */
-
-
+/* Footnotes */
 .footnotes {
   font-size: 0.9em;
   color: #555;
@@ -146,9 +125,10 @@ body {
   padding-left: 20px;
 }
 
+/* Hero Subtitle Paragraphs */
 .hero.teaser .subtitle + p.subtitle {
-  margin-top: 1rem; 
-  font-size: 1.1em; 
+  margin-top: 1rem;
+  font-size: 1.1em;
   line-height: 1.6;
   color: #333;
 }

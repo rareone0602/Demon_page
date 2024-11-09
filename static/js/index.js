@@ -1,21 +1,19 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
+  // Options for Bulma Carousel
+  var carouselOptions = {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    loop: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+  };
 
-    var options = {
-			slidesToScroll: 1,
-			slidesToShow: 1,
-			loop: true,
-			infinite: true,
-			autoplay: true,
-			autoplaySpeed: 5000,
-    }
+  // Initialize all carousels
+  var carousels = bulmaCarousel.attach('.carousel', carouselOptions);
 
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-	
-    bulmaSlider.attach();
-
-})
+  // Initialize Bulma Slider
+  bulmaSlider.attach();
+});
