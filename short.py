@@ -71,12 +71,15 @@ class ShortVideo(Scene):
 
             # Animate image grid changes
             if idx == 0:
-                self.play(
-                    FadeIn(title),
-                    FadeIn(left_images),
-                    FadeIn(images),
-                    run_time=0.5
-                )
+                if idx == 0:
+                    self.add(title, left_images, images)
+                else:
+                    self.play(
+                        FadeIn(title),
+                        FadeIn(left_images),
+                        FadeIn(images),
+                        run_time=0.5
+                    )
             elif idx < 5:
                 self.play(
                     FadeOut(previous_images), FadeIn(images),

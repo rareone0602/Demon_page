@@ -112,9 +112,9 @@
     <div class="container is-max-desktop">
       <div class="hero-body">
         <!-- Video -->
-        <video id="teaser-video" autoplay controls muted loop width="100%">
-          <source src="static/videos/ShortVideo.mp4" type="video/mp4">
-        </video>
+        <figure>
+          <img src="static/images/ShortVideo.gif" alt="Teaser Image">
+        </figure>
         <!-- Teaser Text -->
         <h2 class="subtitle has-text-centered">
           Our proposed stochastic optimization algorithm, Demon, allows to guide the denoising process with the human preference through direct user interaction during inference.
@@ -131,7 +131,7 @@
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <div class="column">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
@@ -144,14 +144,90 @@
   </section>
   <!-- End Abstract Section -->
 
+
+
   <!-- Method Overview Section -->
+  <!-- Try It Section
+  <section class="section"><div class="hero"><div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title has-text-centered">Try it!</h2>
+      <p class="has-text-centered">"Beautiful wallpaper of a galaxy", \( \beta = 0.5 \), \( t = 14.648 \), \( t - \Delta = 14.0 \)</p>
+      <br>
+      <div class="columns is-centered">
+    
+        <div class="column has-text-centered">
+          <h3 class="subtitle">ODE result of \( \mathbf{x}_t \)</h3>
+          <figure class="image">
+            <img src="static/images/html_demo/baseline.jpg" alt="PF-ODE">
+          </figure>
+        </div>
+        <div class="column has-text-centered">
+          <p>Click on images to select or deselect them.</p>
+          <div class="columns is-multiline is-mobile">
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_0.jpg" alt="Generated Image 0" class="selectable-image" data-index="0">
+              </figure>
+            </div>
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_1.jpg" alt="Generated Image 1" class="selectable-image" data-index="1">
+              </figure>
+            </div>
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_2.jpg" alt="Generated Image 2" class="selectable-image" data-index="2">
+              </figure>
+            </div>
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_3.jpg" alt="Generated Image 3" class="selectable-image" data-index="3">
+              </figure>
+            </div>
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_4.jpg" alt="Generated Image 4" class="selectable-image" data-index="4">
+              </figure>
+            </div>
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_5.jpg" alt="Generated Image 5" class="selectable-image" data-index="5">
+              </figure>
+            </div>
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_6.jpg" alt="Generated Image 6" class="selectable-image" data-index="6">
+              </figure>
+            </div>
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_7.jpg" alt="Generated Image 7" class="selectable-image" data-index="7">
+              </figure>
+            </div>
+            <div class="column is-one-third">
+              <figure class="image is-square">
+                <img src="static/images/html_demo/image_8.jpg" alt="Generated Image 8" class="selectable-image" data-index="8">
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="column has-text-centered">
+          <h3 class="subtitle">ODE result of \( \mathbf{x}_{t - \Delta} \) with Demon</h3>
+          <figure class="image">
+            <img id="result-image" src="static/images/html_demo/0.jpg" alt="Result Image">
+          </figure>
+        </div>
+      </div>
+    </div></div></div> 
+  </section> -->
+
   <section class="hero is-small">
     <div class="hero-body">
-      <div class="container">  
+      <div class="container is-max-desktop">  
         <h2 class="title">Method Overview</h2>
-        <video id="method-overview-video" autoplay controls muted loop width="100%">
-          <source src="static/videos/DemonVideo.mp4" type="video/mp4">
-        </video>
+        <figure>
+          <img id="method-overview-image" src="static/images/DemonVideo.gif" alt="Method Overview">
+        </figure>
         <!-- Footnotes section -->
         <div class="footnotes">
           <hr>
@@ -172,7 +248,7 @@
   <!-- Preprint Section -->
   <section class="hero is-small is-light"> 
     <div class="hero-body">
-      <div class="container">
+      <div class="container is-max-desktop">
         <h2 class="title">Preprint</h2>
         <iframe src="static/pdfs/2410.05760v1.pdf" width="100%" height="550"></iframe>
       </div>
