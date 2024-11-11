@@ -138,12 +138,48 @@ body {
 .selectable-image {
   cursor: pointer;
   transition: border 0.2s;
+  border: 3px solid blue;
 }
 
 .selectable-image.selected {
   border: 3px solid red; /* Bulma primary color */
 }
 
-.selectable-image:not(.selected) {
-  border: 3px solid blue;
+
+/* Playbox Styling */
+.playbox {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 40px;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.playbox:hover {
+  background-color: #f9f9f9;
+}
+
+.playbox .columns {
+  margin-top: 20px;
+}
+
+.playbox h3.subtitle {
+  margin-bottom: 10px;
+}
+
+.playbox p.has-text-centered {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.playbox .image img {
+  border-radius: 5px;
+}
+
+/* Adjust spacing between playboxes on larger screens */
+@media (min-width: 769px) {
+  .playbox {
+      margin-bottom: 60px;
+  }
 }
