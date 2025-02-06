@@ -1,7 +1,7 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
 // Define your subdirectories
-var subdirs = ["cabin", "cityscape", "desert", "forest", "galaxy", "island", "library", "temple", "underwater", "waterfall"];
+var subdirs = ["cabin", "desert", "island", "library", "temple", "waterfall"];
 
 // Initialize selected images array per subdir
 var selectedIndices = {}; // Key: subdir, Value: array of selected indices
