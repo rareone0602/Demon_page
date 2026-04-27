@@ -183,3 +183,120 @@ body {
       margin-bottom: 60px;
   }
 }
+
+/* ==========================================================
+   Polish layer (added in UI/UX refresh)
+   ========================================================== */
+
+:root {
+  --accent: #6f3cc4;          /* "Demon" purple, matches the manim accent in DemonVideo */
+  --accent-strong: #4d219a;
+  --metric-good: #1a8754;
+  --text-muted: #555;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Slim section nav under the header buttons */
+.page-nav {
+  margin-top: 0.85rem;
+  font-family: 'Google Sans', sans-serif;
+}
+
+.page-nav a {
+  display: inline-block;
+  margin: 0 0.55rem;
+  font-size: 0.95rem;
+  color: var(--accent);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.page-nav a:hover,
+.page-nav a:focus-visible {
+  border-bottom-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+/* Author link recolor (matches accent) */
+.publication-authors a { color: var(--accent) !important; }
+
+/* Responsive video — applied to the new <video> teaser/method elements */
+.teaser-video,
+.method-video {
+  margin: 0;
+}
+
+.teaser-video video,
+.method-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  border-radius: 10px;
+  background: #000;
+}
+
+/* Static three-image comparison under the teaser */
+.teaser-comparison {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.teaser-comparison .image.is-1by1 img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.teaser-comparison .comparison-label {
+  margin-top: 0.6rem;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.teaser-comparison .metric { font-variant-numeric: tabular-nums; }
+.teaser-comparison .metric-good { color: var(--metric-good); font-weight: 600; }
+
+/* TL;DR card */
+.tldr-section {
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+}
+
+.tldr-card {
+  background: linear-gradient(180deg, #fafafa, #f3f0fa);
+  border-left: 4px solid var(--accent);
+  padding: 1.1rem 1.4rem;
+  border-radius: 6px;
+}
+
+.tldr-card .title { margin-bottom: 0.6rem; color: var(--accent-strong); }
+.tldr-card ul { list-style: disc; margin-left: 1.15rem; }
+.tldr-card li { margin: 0.35rem 0; line-height: 1.5; }
+
+/* PDF iframe — taller, no border, with helper link */
+.preprint-iframe {
+  height: 80vh;
+  min-height: 600px;
+  border: 0;
+  display: block;
+}
+
+.preprint-actions {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+}
+
+/* Footnote readability — was 0.7em which is hard to read */
+.footnotes { font-size: 0.85em; }
+
+/* Mobile tuning */
+@media (max-width: 768px) {
+  .hero.teaser .subtitle + p.subtitle { font-size: 1rem; }
+  .page-nav a { margin: 0 0.35rem; font-size: 0.88rem; }
+  .teaser-comparison .comparison-label { font-size: 0.82rem; }
+  .preprint-iframe { height: 70vh; min-height: 480px; }
+}
